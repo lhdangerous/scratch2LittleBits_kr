@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  electronicadivertida.com  의  scratch2 offline  프로젝트를 기반으로
+ *  도구의 인간에서 한글 번역한 프로그램임을 밝힙니다.
+ *  원본 프로젝트에 관한 정보는 http://littlebits.c/projects/scrstch-offline 에서 볼 수 있습니다.
+ *  July 13, 2015
+ *  
  */
 
 package scratch2littlebits;
@@ -39,14 +41,14 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
                     try {
 
                         if(moArduino!=null && moArduino.isConnected()){
-                            lblLittleBits.setText("Conectado");
+                            lblLittleBits.setText("리틀비츠 연결됨");
                         }else{
-                            lblLittleBits.setText("DESCONECTADO");
+                            lblLittleBits.setText(" 리틀비츠 연결되지 않음");
                         }
                         if(moHTTP!=null && moHTTP.isConectado()){
-                            lblScratch.setText("Conectado");
+                            lblScratch.setText("스크래치 연결됨");
                         }else{
-                            lblScratch.setText("DESCONECTADO");
+                            lblScratch.setText("스크래치 연결되지 않음");
                         }
                         if(moHTTP!=null && moHTTP.isConectado() && moArduino!=null && moArduino.isConnected()){
                             if(!mbConectados){
@@ -104,7 +106,7 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
         lblScratch = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Scratch + Littlebits");
+        setTitle("Scratch2 offline + Littlebits");
         setAlwaysOnTop(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -113,7 +115,7 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         getContentPane().add(lblConexion, gridBagConstraints);
 
-        jLabel1.setText("Puerto littlebits");
+        jLabel1.setText("리틀비츠가 연결된 포트:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);

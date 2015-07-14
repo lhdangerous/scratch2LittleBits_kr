@@ -20,7 +20,7 @@ import java.util.Date;
  * @author eduardo
  */
 public class ScratchHttp implements Runnable{
-    private static final int PORT = 8099; // Número de puerto, debe coincidir con archivo scratch2LittleBitsDEF.json
+    private static final int PORT = 8099; // Nmero de puerto, debe coincidir con archivo scratch2LittleBitsDEF.json
     private InputStream sockIn;
     private OutputStream sockOut;
     private final Scratch2LittleBits moControl;

@@ -1,0 +1,20 @@
+{
+    "extensionName": "littleBits",
+    "extensionPort": 8099,
+    "blockSpecs": [
+        [" ", "디지털 %m.outDPins 번 핀을 %m.dOutp 으로", "digitalWrite", "d1", "true"],
+        [" ", "아날로그 %m.outAPins 번 핀을 %n 으로", "analogWrite", "d5", "100"],
+        ["b", "디지털 %m.inDPins 번 핀 값", "digitalRead", "d0"],
+        ["r", "아날로그 %m.inAPins 번 핀 값", "analogRead", "a0"]
+
+    ],
+    "menus": {
+        "outDPins": ["d1","d5","d9"],
+        "outAPins": ["d5", "d9"],
+        "inDPins": ["d0","a0","a1"],
+        "inAPins": ["a0", "a1"],
+        "dOutp": ["true", "false"],
+        "ops": [">", "=", "<"]
+    },
+    "type": "serial"
+}

@@ -350,7 +350,7 @@ public class ScratchArduino {
     }
 
     public boolean whenDigitalRead(int pin, String val) {
-        if (val.equalsIgnoreCase("HIGH")) {
+        if (val.equalsIgnoreCase("true")) {  // high?
             return digitalRead(pin);
         } else {
             return digitalRead(pin) == false;
