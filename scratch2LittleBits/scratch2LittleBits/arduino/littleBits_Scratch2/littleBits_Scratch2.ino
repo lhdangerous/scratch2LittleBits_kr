@@ -1,3 +1,10 @@
+/*
+ *  electronicadivertida.com 의 scratch2 offline 스크래치 프로젝트 (http://littlebits.c/projects/scrstch-offline)에
+ *  기반하여 '도구의 인간'에서 한글화 및 수정 변경한 프로그램입니다.
+ *  https://github.com/lhdangerous/scratch2LittleBits_kr으로 프로젝트에 기여/수정요청 해주세요
+ *  July 13, 2015
+ *  
+ */
 
 const int READ_PINS = 1;
 const int WRITE_ANALOG = 2;
@@ -13,7 +20,7 @@ int smoothingValues[sensorChannels][maxNumReadings];
 int smoothingIndex[sensorChannels];
 int smoothingTotal[sensorChannels];
 
-
+int analoglizedD0 = 0; // 딪지털인풋을 안날록극값을로출력학기윟해... high>>255 로출력...
 int averageA1;
 int averageA0;
 
@@ -64,7 +71,7 @@ void loop() {
       if (incomingByte == READ_PINS) {
       
         // Read digital pin 0
-        Serial.write(digitalRead(0));
+        Serial.write(analoglizedD0);
         
         // Get averages for analog pins 0 and 1
         Serial.write(averageA0);
@@ -101,6 +108,9 @@ void loop() {
       
     }
   }
+  //  딪짙턾 d0 핀값이0임면0, 1임면255 
+   analoglizedD0 = digitalRead(0)? 255: 0;
+   
   // Analog input smoothing
   // http://arduino.cc/en/Tutorial/Smoothing
   averageA0 = readAnalogPort(A0);
@@ -131,13 +141,4 @@ int readAnalogPort(int plPin) {
   if (value >= 1020) value = 1020;//pq la division por 4 no debe de superar 255
   return ((double)value)/4.0;
 }
-
-//int readDigitalPort(int plPin) {
-//  if (digitalRead(plPin) == LOW) {
-//    return 0;
-//  }
-//  else {
-//    return 1023;
-//  };
-//}
 
