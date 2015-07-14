@@ -1,7 +1,7 @@
 /*
- *  electronicadivertida.com  ì  scratch2 offline  íë¡ì í¸ë¥¼ ê¸°ë°ì¼ë¡
- *  ëêµ¬ì ì¸ê°ìì íê¸ ë²ì­í íë¡ê·¸ë¨ìì ë°íëë¤.
- *  ìë³¸ íë¡ì í¸ì ê´í ì ë³´ë http://littlebits.c/projects/scrstch-offline ìì ë³¼ ì ììµëë¤.
+ *  electronicadivertida.com 의 scratch2 offline 스크래치 프로젝트 (http://littlebits.c/projects/scrstch-offline)에
+ *  기반하여 '도구의 인간'에서 한글화 및 수정 변경한 프로그램입니다.
+ *  https://github.com/lhdangerous/scratch2LittleBits_kr으로 프로젝트에 기여/수정요청 해주세요
  *  July 13, 2015
  *  
  */
