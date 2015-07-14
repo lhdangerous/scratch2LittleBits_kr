@@ -1,7 +1,7 @@
 /*
- *  electronicadivertida.com  의  scratch2 offline  프로젝트를 기반으로
- *  도구의 인간에서 한글 번역한 프로그램임을 밝힙니다.
- *  원본 프로젝트에 관한 정보는 http://littlebits.c/projects/scrstch-offline 에서 볼 수 있습니다.
+ *  electronicadivertida.com  ì  scratch2 offline  íë¡ì í¸ë¥¼ ê¸°ë°ì¼ë¡
+ *  ëêµ¬ì ì¸ê°ìì íê¸ ë²ì­í íë¡ê·¸ë¨ìì ë°íëë¤.
+ *  ìë³¸ íë¡ì í¸ì ê´í ì ë³´ë http://littlebits.c/projects/scrstch-offline ìì ë³¼ ì ììµëë¤.
  *  July 13, 2015
  *  
  */
@@ -41,14 +41,14 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
                     try {
 
                         if(moArduino!=null && moArduino.isConnected()){
-                            lblLittleBits.setText("리틀비츠 연결됨");
+                            lblLittleBits.setText("아두이노 연결됨");
                         }else{
-                            lblLittleBits.setText(" 리틀비츠 연결되지 않음");
+                            lblLittleBits.setText("아두이노 연결 안됨");
                         }
                         if(moHTTP!=null && moHTTP.isConectado()){
-                            lblScratch.setText("스크래치 연결됨");
+                            lblScratch.setText("리틀비츠 연결됨");
                         }else{
-                            lblScratch.setText("스크래치 연결되지 않음");
+                            lblScratch.setText("리틀비츠 연결 안됨");
                         }
                         if(moHTTP!=null && moHTTP.isConectado() && moArduino!=null && moArduino.isConnected()){
                             if(!mbConectados){
