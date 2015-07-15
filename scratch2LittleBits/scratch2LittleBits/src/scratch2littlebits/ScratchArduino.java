@@ -16,8 +16,8 @@ import jssc.SerialPortException;
 import jssc.SerialPortList;
 
 /**
- *
- * @author eduardo
+ * @author august sanghyun park of DOGUIN
+ * @thanksto eduardo
  */
 public class ScratchArduino {
     public static final int READ_PINS = 1;
@@ -37,7 +37,7 @@ public class ScratchArduino {
     
     private String msPuerto;
     private SerialPort serialPort;
-    
+    private int disconnectionCount =0;
 
     public static class InputVals {
 
@@ -73,7 +73,8 @@ public class ScratchArduino {
                 public void run() {
                     try {
                         
-                        if (sendAttempts >= 10) {
+                        if (sendAttempts >= 10 || disconnectionCount >= 10) {
+                            System.out.println("sendAttempts: "+sendAttempts+"  disconnectionCount: "+disconnectionCount);
                             sendAttempts=0;
                             try{
                                 Thread.sleep(1000);
@@ -85,6 +86,7 @@ public class ScratchArduino {
                         try{
                             write(pingCmd);
                         }catch(Throwable e){
+                            System.out.println(e);
                             sendAttempts++;
                             Thread.sleep(100);
                         }
@@ -92,16 +94,49 @@ public class ScratchArduino {
                     } catch (Throwable ex) {
                         ex.printStackTrace();
                     }
+                    
+                    // 데이터 읽기 && 연결상태 확인
+                    if(connected){
+                        
+                        synchronized(this){
+                          try{
+                              test();
+                          }catch(SerialPortException e){
+                              System.out.println(e);
+                              disconnectionCount++;
+                          }
+                       }
+                       
+                    }
                 }
-            }, 50, 50);
+            }, 1000, 50);
             openPort();
     }
 
+    private void test() throws SerialPortException{
+        try {
+            byte[] rawData = null;
+            rawData = serialPort.readBytes(3,100);
+                        System.out.println("rawData: " + String.valueOf(rawData));
+            if (rawData == null){
+                disconnectionCount++;
+//                throw new SerialPortException(serialPort.getPortName(),"timeout","100");
+            }else{
+                disconnectionCount = 0;
+                processData(rawData);
+            }
+        }catch (jssc.SerialPortTimeoutException ex) {
+         System.out.println(ex);
+         throw new SerialPortException(serialPort.getPortName(),"timeout","100");
+        }
+    }
+    
     public static String[] getListaPuertos(){
         return SerialPortList.getPortNames();
     }
     
     public synchronized void openPort() throws Exception{
+        System.out.println("opening...");
         if(SerialPortList.getPortNames().length>0){
             try{
                 if(msPuerto==null || msPuerto.equals("")){
@@ -129,16 +164,16 @@ public class ScratchArduino {
                         if(event.isRXCHAR()){//If data is available
                            if(event.getEventValue() >= 3){//Check bytes count in the input buffer
                                //Read data, if 10 bytes available 
-                               try {
-                                    synchronized(this){
-                                        byte[] rawData = serialPort.readBytes(3);
-//                                        System.out.println("rawData: " + String.valueOf(rawData));
-                                        processData(rawData);
-                                    }
-                               }
-                               catch (SerialPortException ex) {
-                                   System.out.println(ex);
-                               }
+//                               try {
+//                                    synchronized(this){
+//                                        byte[] rawData = serialPort.readBytes(3);
+////                                        System.out.println("rawData: " + String.valueOf(rawData));
+//                                        processData(rawData);
+//                                    }
+//                               }
+//                               catch (SerialPortException ex) {
+//                                   System.out.println(ex);
+//                               }
                            }
                        }
                        else if(event.isCTS()){//If CTS line has changed state
@@ -185,6 +220,7 @@ public class ScratchArduino {
         closePort();
     }
     public synchronized void closePort() throws Exception {
+        System.out.println("closing...");
         connected = false;
         if (serialPort != null) {
             SerialPort loAux = serialPort;
@@ -192,6 +228,7 @@ public class ScratchArduino {
             loAux.removeEventListener();
             loAux.closePort();
         }
+//        Thread.sleep(1000);
     }
 
     public synchronized void close() throws Exception {
@@ -222,6 +259,7 @@ public class ScratchArduino {
     }
 
     public synchronized void write(int[] b) throws Exception {
+        System.out.println("ping~");
         byte[] lab = new byte[b.length];
         for(int i = 0; i < b.length; i++){
             lab[i]=(byte)b[i];
