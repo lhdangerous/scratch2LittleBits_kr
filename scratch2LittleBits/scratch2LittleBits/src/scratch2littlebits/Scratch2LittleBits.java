@@ -41,14 +41,14 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
                     try {
 
                         if(moArduino!=null && moArduino.isConnected()){
-                            lblLittleBits.setText("아두이노 연결됨");
+                            lblLittleBits.setText("리틀비츠 연결됨");
                         }else{
-                            lblLittleBits.setText("아두이노 연결 안됨");
+                            lblLittleBits.setText("리틀비츠 연결 안됨");
                         }
                         if(moHTTP!=null && moHTTP.isConectado()){
-                            lblScratch.setText("리틀비츠 연결됨");
+                            lblScratch.setText("스크래치 연결됨");
                         }else{
-                            lblScratch.setText("리틀비츠 연결 안됨");
+                            lblScratch.setText("스크래치 연결 안됨");
                         }
                         if(moHTTP!=null && moHTTP.isConectado() && moArduino!=null && moArduino.isConnected()){
                             if(!mbConectados){
