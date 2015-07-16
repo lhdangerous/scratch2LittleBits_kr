@@ -104,6 +104,7 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         lblLittleBits = new javax.swing.JLabel();
         lblScratch = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Scratch2 offline + Littlebits");
@@ -162,6 +163,13 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 0, 0);
         getContentPane().add(lblScratch, gridBagConstraints);
+
+        jLabel2.setFont(new java.awt.Font("굴림", 0, 9)); // NOI18N
+        jLabel2.setText("make it happen, make it real!   도구의 인간");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.ipady = 2;
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -244,6 +252,7 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblConexion;
     private javax.swing.JLabel lblLittleBits;
     private javax.swing.JLabel lblScratch;
