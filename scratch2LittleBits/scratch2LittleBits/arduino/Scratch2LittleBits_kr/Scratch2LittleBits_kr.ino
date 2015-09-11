@@ -63,7 +63,8 @@ void loop() {
     if (incomingByte == READ_PINS) {
     
       // Read digital pin 0
-      inputPins[0] = digitalRead(0);
+       // 딪지털인풋을 안날록극값을로출력학기윟해
+      inputPins[0] = digitalRead(0)? 1023: 0;  //  딪짙턾 d0 핀값이0임면0, 1임면1023 
       
       // Get averages for analog pins 0 and 1
       inputPins[1] = averageA0;
