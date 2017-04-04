@@ -1,0 +1,58 @@
+﻿
+스크래치2.0(offline)과 리틀비츠 아두이노빗을 사용하여 내가 스크래치로 작성한 프로그램이 컴퓨터 밖에서 물리적으로 작동하도록 하는 방법입니다.
+
+
+
+1. 첨부된 파일을 다운로드해 압축을 풉니다.
+
+
+     ※ 첨부된 압축파일은 세가지를 포함하고 있습니다. 
+
+     1. 아두이노 펌웨어(scratch2littleBits_kr.ino)
+
+     2. 소켓연결프로그램(scratch2littleBits_kr.exe 와 lib_folder )
+
+     3. 시동용 스크래치 예제파일(scratch2littleBits_kr.sb2)
+
+
+
+2. 아두이노빗에 파워를 연결하고 usb케이블을 사용해 컴퓨터에 연결합니다.
+
+
+
+3. 다운로드한 아두이노 펌웨어를 리틀비츠 아두이노빗에 업로드합니다.
+
+※ 아두이노가 설치되어있지 않은 컴퓨터의 경우 아두이노 소프트웨어와 드라이버를 먼저 설치해 주어야 합니다. 자세한 방법은 kokoafab에 잘 설명되어 있네요.(http://kocoafab.cc/tutorial/view/55) 글쓰는 지금 현재 아두이노 소프트웨어의 최신버전은 1.6.5입니다만, 설치방법은 동일합니다. 
+
+
+※ 이 과정은 최초 한번만 실행하면 됩니다. 일단 scratch2littlebits_kr.ino 펌웨어를 아두이노빗에 업로드 하고 나면 이후에 다른 펌웨어를 덮어씌우지 않는 한, 전원을 제거해도 펌웨어는 계속 유지됩니다.
+
+
+
+4. 간단한 테스트 회로[power > dimmer > arduino(a0) > arduino(d5) > bright led]를 만들고 usb케이블을 통해 컴퓨터에 연결합니다.
+
+
+
+5. 압축파일에 포함된 소켓 연결 프로그램을 실행시킵니다.
+
+※ java runtime이 설치되어있지 않은 컴퓨터의 경우 자바를 먼저 설치해 주어야 합니다. 설치방법과 설치파일은 (https://www.java.com/ko/)에서 보실 수 있습니다.
+
+
+※ credit: 제공되는 소켓연결 프로그램은 electronicadivertida.com 의 scratch2 offline 스크래치 프로젝트 (http://littlebits.c/projects/scrstch-offline)를 발전시켜 도구의 인간에서 제작하였습니다. 한편 electronicadivertida.com는 khanning의 Scratch littleBits Extension (https://github.com/khanning/scratch-littlebits-extension)에 기반하였습니다. 그야말로 오픈소스의 살아있는 예라 하겠습니다.^^
+
+
+※ scratch2LittleBits_kr.exe 소켓 연결프로그램의 위치를 옮긴다면 lib폴더도 함께 옮겨주어 scratch2littleBits_kr.exe와 동일한 폴더에 위치하도록 해야 합니다. 
+
+
+
+6. 압축파일에 포함된 scratch2LittleBits-시작하기.sb2를 scratch2.0 offline을 사용해 엽니다.
+
+
+※ scratch2.0 offline이 설치되어있지 않은 컴퓨터의 경우 먼저 스크래치 오프라인버전을 설치해 주어야 합니다. 이곳(https://scratch.mit.edu/scratch2download/)에서 받으실 수 있습니다.
+
+7. 예제파일을 수정해 자신만의 새로운 littleBits+Scratch 프로젝트를 시작하세요.
+
+
+※ 회로의 연결이 갑작스럽게 끊어졌다면 회로 연결상태를 점검하고 약 1초정도 전원을 껏다가 다시 켜 보세요.
+
+ 
