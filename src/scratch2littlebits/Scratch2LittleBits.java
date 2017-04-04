@@ -52,13 +52,13 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
                         }
                         if(moHTTP!=null && moHTTP.isConectado() && moArduino!=null && moArduino.isConnected()){
                             if(!mbConectados){
-                                lblConexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_connected.png")));
+                                lblConexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_run.gif")));
                                 setAlwaysOnTop(false);
                             }
                             mbConectados = true;
                         }else{
                             if(mbConectados){
-                                lblConexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon.png")));
+                                lblConexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_stop.png")));
                                 setAlwaysOnTop(true);
                             }
                             mbConectados = false;
@@ -111,7 +111,7 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        lblConexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon.png"))); // NOI18N
+        lblConexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_stop.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         getContentPane().add(lblConexion, gridBagConstraints);
@@ -144,7 +144,8 @@ public class Scratch2LittleBits extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 0, 0);
         getContentPane().add(jComboBox1, gridBagConstraints);
 
-        lblLittleBits.setBackground(new java.awt.Color(255, 204, 204));
+        lblLittleBits.setBackground(new java.awt.Color(102, 30, 158));
+        lblLittleBits.setForeground(new java.awt.Color(204, 204, 204));
         lblLittleBits.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLittleBits.setText(" ");
         lblLittleBits.setOpaque(true);
